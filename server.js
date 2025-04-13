@@ -1,9 +1,8 @@
-import express from 'express';
-import cors from 'cors';
-import routes from './src/routes/index.js';
-import { initDB } from './src/db/init.js';
-import dotenv from 'dotenv';
-dotenv.config();
+const express = require('express');
+const cors = require('cors');
+const routes = require('./src/routes/index.js');
+const { initDB } = require('./src/db/init.js');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;

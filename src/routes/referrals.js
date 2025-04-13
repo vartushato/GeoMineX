@@ -25,4 +25,4 @@ router.post('/bonus', async (req, res) => {
   res.json(result.rows[0]);
 });
 
-export default router;
+module.exports = router;

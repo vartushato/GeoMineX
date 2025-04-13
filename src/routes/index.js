@@ -13,4 +13,4 @@ router.use('/withdrawals', withdrawalRoutes);
 router.use('/referrals', referralRoutes);
 router.use('/admin', adminRoutes);
 
-export default router;
+module.exports = router;
