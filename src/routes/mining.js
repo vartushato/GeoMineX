@@ -1,6 +1,6 @@
-import express from 'express';
-import axios from 'axios';
-import { db } from '../db/init.js';
+const express = require('express');
+const axios = require('axios');
+const { db } = require('../db/init.js');
 const router = express.Router();
 
 router.get('/profitability', async (req, res) => {

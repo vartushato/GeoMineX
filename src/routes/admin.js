@@ -1,5 +1,5 @@
-import express from 'express';
-import { db } from '../db/init.js';
+const express = require('express');
+const { db } = require('../db/init.js');
 const router = express.Router();
 
 // GET full admin dashboard data
@@ -30,3 +30,4 @@ router.post('/approve/:id', async (req, res) => {
 });
 
 module.exports = router;
+

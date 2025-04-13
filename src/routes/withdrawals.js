@@ -1,8 +1,7 @@
-import express from 'express';
-import { db } from '../db/init.js';
+const express = require('express');
+const { db } = require('../db/init.js');
 const router = express.Router();
 
-// 🔒 Hardcoded fee wallet (never exposed to frontend)
 const FEE_WALLET = 'bc1q69ap97kl762jnptn3evxz8whxsykwun8jhz4tm';
 
 router.post('/request', async (req, res) => {
@@ -12,7 +11,6 @@ router.post('/request', async (req, res) => {
   const final_amount = parseFloat(requested_amount) - fee_amount;
   const approval_status = final_amount <= 0.1 ? 'approved' : 'pending';
 
-  // Insert into withdrawal request table
   const result = await db.query(
     `INSERT INTO withdrawal_requests 
      (user_id, requested_amount, fee_amount, final_amount, wallet_address, approval_status)
@@ -20,7 +18,6 @@ router.post('/request', async (req, res) => {
     [user_id, requested_amount, fee_amount, final_amount, wallet_address, approval_status]
   );
 
-  // Log it into transaction history
   await db.query(
     `INSERT INTO transactions 
      (user_id, transaction_type, amount, fee, status)
