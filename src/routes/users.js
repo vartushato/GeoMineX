@@ -1,5 +1,5 @@
-import express from 'express';
-import { db } from '../db/init.js';
+const express = require('express');
+const { db } = require('../db/init.js');
 const router = express.Router();
 
 router.post('/register', async (req, res) => {

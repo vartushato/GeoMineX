@@ -1,11 +1,11 @@
-import pg from 'pg';
+const pg = require('pg');
 const { Pool } = pg;
 
-export const db = new Pool({
+const db = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
-export const initDB = async () => {
+const initDB = async () => {
   await db.query(`
     CREATE TABLE IF NOT EXISTS users (
       id SERIAL PRIMARY KEY,
@@ -57,3 +57,5 @@ export const initDB = async () => {
   `);
   console.log('✅ Database initialized');
 };
+
+module.exports = { db, initDB };

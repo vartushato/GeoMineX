@@ -1,9 +1,9 @@
-import express from 'express';
-import userRoutes from './users.js';
-import miningRoutes from './mining.js';
-import withdrawalRoutes from './withdrawals.js';
-import referralRoutes from './referrals.js';
-import adminRoutes from './admin.js';
+const express = require('express');
+const userRoutes = require('./users.js');
+const miningRoutes = require('./mining.js');
+const withdrawalRoutes = require('./withdrawals.js');
+const referralRoutes = require('./referrals.js');
+const adminRoutes = require('./admin.js');
 
 const router = express.Router();
 
